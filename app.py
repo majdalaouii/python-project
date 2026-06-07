@@ -30,7 +30,6 @@ class MiniHub:
         self.show_login()
         self.root.mainloop()
 
-    # ---------------- UTIL ----------------
     def clear(self):
         for w in self.root.winfo_children():
             w.destroy()
@@ -39,7 +38,6 @@ class MiniHub:
         self.clear()
         func()
 
-    # ---------------- LOGIN ----------------
     def show_login(self):
         self.set_frame(self._login_ui)
 
@@ -66,7 +64,6 @@ class MiniHub:
         self.player_name = name
         self.show_menu()
 
-    # ---------------- MENU ----------------
     def show_menu(self):
         self.set_frame(self._menu_ui)
 
@@ -88,11 +85,9 @@ class MiniHub:
         tk.Button(self.root, text="Exit",
                   width=25, command=self.root.destroy).pack(pady=20)
 
-    # ---------------- BACK ----------------
     def back_to_menu(self):
         self.show_menu()
 
-    # ---------------- GUESS GAME ----------------
     def guess_screen(self):
         self.set_frame(self._guess_ui)
         self.secret_number = random.randint(1, 20)
@@ -130,7 +125,6 @@ class MiniHub:
         else:
             self.guess_result.config(text=f"Correct {self.player_name} 🎉")
 
-    # ---------------- CALCULATOR ----------------
     def calc_screen(self):
         self.set_frame(self._calc_ui)
 
@@ -158,7 +152,6 @@ class MiniHub:
         except:
             self.calc_result.config(text="Invalid expression")
 
-    # ---------------- QUIZ ----------------
     def quiz_start(self):
         self.quiz_index = 0
         self.quiz_score = 0
